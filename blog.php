@@ -23,6 +23,8 @@ error_reporting(E_ALL);
 
 $signature = $_SERVER['X-Hub-Signature'];
 
+var_dump($_SERVER);
+
 //webhook secret
 $token = 123456;
 
