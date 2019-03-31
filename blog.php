@@ -40,13 +40,13 @@ if ($signature !== 'sha1=' . $sha1) {
     exit();
 }
 
-echo exec('whoami');
-
 //该目录为git检出目录
 $dir = '/home/www/blog';
 
+exec("git config --global user.email '1602882811@qq.com' && git config --global user.email 'xiaoxiaoxiao'");
+
 //git更新命令
-$command = "cd {$dir}  && git checkout . && git pull origin master 2>&1";
+$command = "cd {$dir}  &&  git checkout . && git pull origin master 2>&1";
 
 //执行命令
 exec($command, $output);
