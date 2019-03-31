@@ -26,7 +26,7 @@ set_time_limit(0);
 $signature = $_SERVER['HTTP_X_HUB_SIGNATURE'];
 
 //webhook secret
-$token = 123456;
+$token = 'fc49e01f6816fed0b5c58f92a2611d5f';
 
 //获取json数据
 $json_post  = file_get_contents("php://input");
