@@ -32,6 +32,10 @@ $json_post  = file_get_contents("php://input");
 //生成签名
 $sha1 = hash_hmac('sha1', $json_post, $token);
 
+var_dump($signature);
+var_dump($sha1);
+var_dump($json_post);
+
 //签名验证
 if ($signature !== 'sha1=' . $sha1) {
     die('sign error');
