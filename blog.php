@@ -28,6 +28,9 @@ var_dump($l);
 
 exec("whoami 2>&1&&git config --global user.email '1602882811@qq.com' 2>&1&& git config --global user.email 'xiaoxiaoxiao' 2>&1&&  git config --global -l 2>&1", $test);
 var_dump($test);
+
+exec("cd /home/www/blog  && git config user.name 'xiaoxiaoxiao' && git config user.email '1605882811@qq.com' && git checkout . && git pull origin master 2>&1", $output);
+var_dump($output);
 exit();
 
 $signature = $_SERVER['HTTP_X_HUB_SIGNATURE'];
@@ -51,8 +54,7 @@ if ($signature !== 'sha1=' . $sha1) {
 $dir = '/home/www/blog';
 
 //git更新命令
-$command = "cd {$dir}  &&  git checkout . && git pull origin master 2>&1";
-
+$command = "cd {$dir}  && git config user.name 'xiaoxiaoxiao' && git config user.email '1605882811@qq.com' && git checkout . && git pull origin master 2>&1";
 //执行命令
 exec($command, $output);
 var_dump($output);
