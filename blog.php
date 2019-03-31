@@ -23,6 +23,18 @@ error_reporting(E_ALL);
 //设置请求超时时间
 set_time_limit(0);
 
+exec('cd /home/www/blog');
+
+exec('git config --global -l', $bbb);
+var_dump($bbb);
+
+exec("git config --global user.email '1602882811@qq.com' && git config --global user.email 'xiaoxiaoxiao'", $test);
+var_dump($test);
+
+exec('git config --global -l', $aaa);
+var_dump($aaa);
+exit();
+
 $signature = $_SERVER['HTTP_X_HUB_SIGNATURE'];
 
 //webhook secret
@@ -42,8 +54,6 @@ if ($signature !== 'sha1=' . $sha1) {
 
 //该目录为git检出目录
 $dir = '/home/www/blog';
-
-exec("git config --global user.email '1602882811@qq.com' && git config --global user.email 'xiaoxiaoxiao'");
 
 //git更新命令
 $command = "cd {$dir}  &&  git checkout . && git pull origin master 2>&1";
