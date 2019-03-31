@@ -40,6 +40,8 @@ if ($signature !== 'sha1=' . $sha1) {
     exit();
 }
 
+echo exec('whoami');
+
 //该目录为git检出目录
 $dir = '/home/www/blog';
 
