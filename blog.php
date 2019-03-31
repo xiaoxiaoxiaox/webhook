@@ -24,9 +24,12 @@ error_reporting(E_ALL);
 $gitPost = json_decode(file_get_contents("php://input"));
 
 $dir = '/home/www/blog';//该目录为git检出目录
-$comm = "cd {$dir}  && git checkout  master  && git pull origin master";
-$handle = popen($comm, 'r');
-$read = stream_get_contents($handle);
-echo "'$handle'; " . gettype($handle) . "\n";
-pclose($handle);
-echo json_encode($read);
+$command = "cd {$dir}  && git checkout  master  && git pull origin master";
+//$handle = popen($comm, 'r');
+//$read = stream_get_contents($handle);
+//echo "'$handle'; " . gettype($handle) . "\n";
+//pclose($handle);
+//echo json_encode($read);
+echo exec('whoami');
+
+echo exec($command);
