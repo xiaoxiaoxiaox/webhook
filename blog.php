@@ -23,10 +23,10 @@ error_reporting(E_ALL);
 //设置请求超时时间
 set_time_limit(0);
 
-exec('cd /home/www && ls -al && cat .gitconfig && git config --global -l', $l);
+exec('cd /home/www && ls -al && cat .gitconfig && git config --global -l 2>&1', $l);
 var_dump($l);
 
-exec("git config --global user.email '1602882811@qq.com' && git config --global user.email 'xiaoxiaoxiao' &&  git config --global -l ", $test);
+exec("git config --global user.email '1602882811@qq.com' 2>&1&& git config --global user.email 'xiaoxiaoxiao' 2>&1&&  git config --global -l 2>&1", $test);
 var_dump($test);
 exit();
 
