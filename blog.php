@@ -26,11 +26,8 @@ set_time_limit(0);
 exec('cd /home/www && ls -al && cat .gitconfig && git config --global -l', $l);
 var_dump($l);
 
-exec("git config --global -l && git config --global user.email '1602882811@qq.com' && git config --global user.email 'xiaoxiaoxiao'", $test);
+exec("git config --global user.email '1602882811@qq.com' && git config --global user.email 'xiaoxiaoxiao' &&  git config --global -l ", $test);
 var_dump($test);
-
-exec('git config --global -l', $aaa);
-var_dump($aaa);
 exit();
 
 $signature = $_SERVER['HTTP_X_HUB_SIGNATURE'];
