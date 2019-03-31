@@ -20,6 +20,8 @@
  * -----------------------------------------------------
  */
 error_reporting(E_ALL);
+//设置请求超时时间
+set_time_limit(0);
 
 $signature = $_SERVER['HTTP_X_HUB_SIGNATURE'];
 
@@ -32,16 +34,11 @@ $json_post  = file_get_contents("php://input");
 //生成签名
 $sha1 = hash_hmac('sha1', $json_post, $token);
 
-var_dump($signature);
-var_dump($sha1);
-var_dump($json_post);
-
 //签名验证
 if ($signature !== 'sha1=' . $sha1) {
-    die('sign error');
+    echo 'sign error';
+    exit();
 }
-
-die(1);
 
 //该目录为git检出目录
 $dir = '/home/www/blog';
@@ -52,3 +49,4 @@ $command = "cd {$dir}  && git checkout master  && git pull origin master 2>&1";
 //执行命令
 exec($command, $output);
 var_dump($output);
+exit();
