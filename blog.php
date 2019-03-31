@@ -21,7 +21,7 @@
  */
 error_reporting(E_ALL);
 
-$signature = $_SERVER['X-Hub-Signature'];
+$signature = $_SERVER['HTTP_X_HUB_SIGNATURE'];
 
 var_dump($_SERVER);
 
