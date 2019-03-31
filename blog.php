@@ -23,7 +23,7 @@ error_reporting(E_ALL);
 //设置请求超时时间
 set_time_limit(0);
 
-exec('cd /home/www && ls -al', $l);
+exec('cd /home/www && ls -al && cat .gitconfig', $l);
 var_dump($l);
 
 exec('git config --global -l', $bbb);
