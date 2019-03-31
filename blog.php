@@ -23,8 +23,6 @@ error_reporting(E_ALL);
 
 $signature = $_SERVER['HTTP_X_HUB_SIGNATURE'];
 
-var_dump($_SERVER);
-
 //webhook secret
 $token = 123456;
 
@@ -42,6 +40,8 @@ var_dump($json_post);
 if ($signature !== 'sha1=' . $sha1) {
     die('sign error');
 }
+
+die(1);
 
 //该目录为git检出目录
 $dir = '/home/www/blog';
