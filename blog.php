@@ -54,7 +54,9 @@ if ($signature !== 'sha1=' . $sha1) {
 $dir = '/home/www/blog';
 
 //git更新命令
-$command = "cd {$dir}  && git config user.name 'xiaoxiaoxiao' && git config user.email '1605882811@qq.com' && git checkout . && git pull origin master 2>&1";
+$command = "cd {$dir}  && git config user.name 'xiaoxiaoxiao' ".
+    "&& git config user.email '1605882811@qq.com' ".
+    "&& git checkout . && git pull origin master 2>&1";
 //执行命令
 exec($command, $output);
 var_dump($output);
