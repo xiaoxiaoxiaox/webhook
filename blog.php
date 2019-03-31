@@ -30,6 +30,9 @@ $command = "cd {$dir}  && git checkout  master  && git pull origin master";
 //echo "'$handle'; " . gettype($handle) . "\n";
 //pclose($handle);
 //echo json_encode($read);
-echo exec('whoami');
+exec('whoami 2>&1', $test);
 
-echo exec($command);
+var_dump($test);
+
+exec($command, $output);
+var_dump($output);
