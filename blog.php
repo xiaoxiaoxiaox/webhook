@@ -21,16 +21,28 @@
  */
 error_reporting(E_ALL);
 
-$gitPost = json_decode(file_get_contents("php://input"));
+$signature = $_SERVER['X-Hub-Signature'];
 
-var_dump($gitPost);
+//webhook secret
+$token = 123456;
 
-$dir = '/home/www/blog';//该目录为git检出目录
+//获取json数据
+$json_post  = file_get_contents("php://input");
+
+//生成签名
+$sha1 = hash_hmac('sha1', $json_post, $token);
+
+//签名验证
+if ($signature !== 'sha1=' . $sha1) {
+    die('sign error');
+}
+
+//该目录为git检出目录
+$dir = '/home/www/blog';
+
+//git更新命令
 $command = "cd {$dir}  && git checkout master  && git pull origin master 2>&1";
-//$handle = popen($comm, 'r');
-//$read = stream_get_contents($handle);
-//echo "'$handle'; " . gettype($handle) . "\n";
-//pclose($handle);
-//echo json_encode($read);
+
+//执行命令
 exec($command, $output);
 var_dump($output);
