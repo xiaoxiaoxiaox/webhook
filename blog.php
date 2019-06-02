@@ -56,7 +56,10 @@ $dir = '/home/www/blog';
 //git更新命令
 $command = "cd {$dir}  && git config user.name 'xiaoxiaoxiao' ".
     "&& git config user.email '1605882811@qq.com' ".
-    "&& git checkout . && git pull origin master 2>&1";
+//    "&& git checkout . && git pull origin master 2>&1";
+    "&& git checkout . && git fetch --all && git reset --hard origin/master"; //强制更新
+
+
 //执行命令
 exec($command, $output);
 var_dump($output);
