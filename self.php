@@ -65,8 +65,8 @@ if (empty($dir)) {
 //git更新命令
 $command = "cd {$dir}  && git config user.name 'xiaoxiaoxiao' ".
     "&& git config user.email '1605882811@qq.com' ".
-    "&& git checkout . && git pull --force origin master 2>&1"; //强制覆盖本地分支
-//    "&& git checkout . && git fetch --all && git reset --hard origin/master"; //强制更新
+//    "&& git checkout . && git pull --force origin master 2>&1"; //强制更新
+    "&& git checkout . && git fetch --all && git reset --hard origin/master"; //强制覆盖本地分支
 
 
 //执行命令
