@@ -2,7 +2,7 @@
 /**
  * Url: http://xxcok.com
  * Author: xiaoxiaoxiao
- * Date: 2019/3/31
+ * Date: 2019/6/2
  * Time: 9:48
  *
  *  .--,       .--,
@@ -35,7 +35,7 @@ set_time_limit(0);
 
 include_once __DIR__ . DIRECTORY_SEPARATOR . 'common.php';
 
-$env = get_env('blog');
+$env = get_env('self');
 
 $signature = $_SERVER['HTTP_X_HUB_SIGNATURE'];
 
